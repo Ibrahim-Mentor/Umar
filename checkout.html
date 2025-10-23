@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout - Rayelle</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header class="header">
+        <div class="container">
+             <div class="header-content" style="justify-content: center;">
+                <div class="logo">
+                     <h1><a href="index.html">RAYELLE</a></h1>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="main-page">
+        <div class="container">
+            <h2 class="page-title">Checkout</h2>
+            <div class="checkout-layout">
+                <div class="checkout-form-container">
+                    <div class="checkout-steps">
+                        <div class="step active">Shipping</div>
+                        <div class="step">Payment</div>
+                        <div class="step">Review</div>
+                    </div>
+                    <form id="checkout-form" class="checkout-form">
+                        <h3>Shipping Information</h3>
+                        <div class="form-row">
+                            <input type="text" placeholder="First Name" required>
+                            <input type="text" placeholder="Last Name" required>
+                        </div>
+                        <input type="text" placeholder="Address" required>
+                        <input type="text" placeholder="City" required>
+                         <div class="form-row">
+                            <input type="text" placeholder="State" required>
+                            <input type="text" placeholder="ZIP Code" required>
+                        </div>
+                        <input type="email" placeholder="Email" required>
+                        <button type="button" class="cta-btn">Continue to Payment</button>
+                    </form>
+                </div>
+                <div class="order-summary-box">
+                    <h3>Your Order</h3>
+                    <div class="summary-item">
+                        <img src="https://images.unsplash.com/photo-1572635196237-14b3f281503f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=880&q=80" alt="Product">
+                        <div>
+                            <p>Aviator Pro Sunglasses</p>
+                            <p>$149.99</p>
+                        </div>
+                        <span>x1</span>
+                    </div>
+                    <div class="total-line">
+                        <span>Subtotal</span>
+                        <span>$149.99</span>
+                    </div>
+                     <div class="total-line grand-total">
+                        <span>Total</span>
+                        <span>$167.49</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+</body>
+</html>

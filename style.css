@@ -752,3 +752,482 @@ h1, h2, h3, h4 {
 .nav.mobile-nav .nav-link {
     font-size: 1.2rem;
 }
+
+/*
+  RAYELLE EYEWEAR - REDESIGN V2
+  ---
+  - Includes styles for Account, Cart, and Checkout pages
+*/
+
+/* 1. SETUP & VARIABLES
+----------------------------------- */
+:root {
+    --black: #0d0d0d;
+    --dark-gray: #1a1a1a;
+    --medium-gray: #2c2c2c;
+    --light-gray: #4d4d4d;
+    --text-light: #f5f5f5;
+    --text-muted: #a3a3a3;
+    --accent-gold: #d4af37;
+    --accent-bronze: #b8860b;
+    
+    --font-heading: 'Playfair Display', serif;
+    --font-body: 'Roboto', sans-serif;
+
+    --transition-fast: all 0.2s ease-in-out;
+    --transition-medium: all 0.4s ease-in-out;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-body);
+    background-color: var(--black);
+    color: var(--text-light);
+    line-height: 1.7;
+    overflow-x: hidden;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+ul {
+    list-style: none;
+}
+
+h1, h2, h3, h4 {
+    font-family: var(--font-heading);
+    color: var(--text-light);
+    font-weight: 700;
+}
+
+.section-title, .page-title {
+    font-size: clamp(2rem, 5vw, 2.75rem);
+    margin-bottom: 2rem;
+    text-align: center;
+    color: var(--accent-gold);
+    position: relative;
+    padding-bottom: 1rem;
+}
+
+.section-title::after, .page-title::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 2px;
+    background-color: var(--accent-gold);
+    margin: 10px auto;
+}
+
+
+/* 2. REUSABLE COMPONENTS
+----------------------------------- */
+.cta-btn {
+    background-color: var(--accent-gold);
+    color: var(--black);
+    border: 1px solid var(--accent-gold);
+    padding: 12px 30px;
+    font-size: 1rem;
+    font-weight: 500;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: var(--transition-fast);
+    display: inline-block;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    text-align: center;
+}
+
+.cta-btn:hover {
+    background-color: transparent;
+    color: var(--accent-gold);
+}
+
+.cta-btn-sm {
+    padding: 6px 12px;
+    font-size: 0.8rem;
+}
+
+.icon-btn {
+    background: none;
+    border: none;
+    color: var(--text-light);
+    cursor: pointer;
+    padding: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    transition: var(--transition-fast);
+}
+
+.icon-btn:hover {
+    color: var(--accent-gold);
+}
+
+
+/* 3. HEADER
+----------------------------------- */
+.header {
+    background-color: rgba(13, 13, 13, 0.8);
+    backdrop-filter: blur(10px);
+    padding: 15px 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    border-bottom: 1px solid var(--medium-gray);
+    transition: background-color 0.3s ease;
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo h1 {
+    color: var(--accent-gold);
+    font-size: 1.75rem;
+    letter-spacing: 2px;
+}
+
+.nav {
+    display: none;
+}
+
+.nav-list {
+    display: flex;
+    gap: 30px;
+}
+
+.nav-link {
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 0.9rem;
+    position: relative;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background-color: var(--accent-gold);
+    transition: width 0.3s ease;
+}
+
+.nav-link:hover::after, .nav-link.active::after {
+    width: 100%;
+}
+
+.header-actions {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.search-container {
+    position: relative;
+    display: none;
+}
+
+#search-input {
+    padding: 8px 12px;
+    border: 1px solid var(--light-gray);
+    background-color: var(--medium-gray);
+    color: var(--text-light);
+    border-radius: 5px;
+    width: 200px;
+}
+
+.search-btn {
+    position: absolute;
+    right: 5px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    color: var(--text-muted);
+    cursor: pointer;
+}
+
+#cart-btn #cart-count {
+    position: absolute;
+    top: -5px;
+    right: -8px;
+    background-color: var(--accent-gold);
+    color: var(--black);
+    border-radius: 50%;
+    width: 18px;
+    height: 18px;
+    font-size: 0.7rem;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.auth-btn {
+    background-color: transparent;
+    border: 1px solid var(--accent-gold);
+    color: var(--accent-gold);
+    padding: 6px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.8rem;
+    font-weight: 500;
+    transition: var(--transition-fast);
+    display: none;
+}
+
+.auth-btn:hover {
+    background-color: var(--accent-gold);
+    color: var(--black);
+}
+
+.menu-toggle {
+    display: block;
+}
+
+
+/* Main Page Content (for Account, Cart, etc.) */
+.main-page {
+    padding: 4rem 0;
+}
+
+/* All other sections from previous design are here... */
+.hero, .categories-section, .products-section, .about-section, .contact-section, .footer {
+    /* Styles remain the same */
+}
+
+
+/* 10. NEW PAGE STYLES
+----------------------------------- */
+
+/* ACCOUNT PAGE */
+.account-layout {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+}
+.account-sidebar {
+    background: var(--dark-gray);
+    padding: 1.5rem;
+    border-radius: 10px;
+    border: 1px solid var(--medium-gray);
+}
+.account-nav li {
+    margin-bottom: 0.5rem;
+}
+.account-nav a {
+    display: block;
+    padding: 0.8rem 1rem;
+    border-radius: 5px;
+    transition: var(--transition-fast);
+}
+.account-nav li.active a, .account-nav a:hover {
+    background: var(--medium-gray);
+    color: var(--accent-gold);
+}
+.account-content h3 {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+}
+.account-content p {
+    color: var(--text-muted);
+    margin-bottom: 2rem;
+}
+.account-subtitle {
+    font-size: 1.4rem;
+    color: var(--accent-gold);
+    margin-bottom: 1rem;
+    border-bottom: 1px solid var(--medium-gray);
+    padding-bottom: 0.5rem;
+}
+.order-history-table table {
+    width: 100%;
+    border-collapse: collapse;
+}
+.order-history-table th, .order-history-table td {
+    padding: 1rem;
+    text-align: left;
+    border-bottom: 1px solid var(--medium-gray);
+}
+.order-history-table th {
+    font-weight: 500;
+    color: var(--text-muted);
+}
+
+/* CART PAGE */
+.cart-page-layout {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+}
+.cart-items-container .cart-item {
+    background: var(--dark-gray);
+    border: 1px solid var(--medium-gray);
+    border-radius: 10px;
+    padding: 1.5rem;
+    display: flex;
+    gap: 1.5rem;
+    align-items: center;
+    margin-bottom: 1.5rem;
+}
+.cart-item-image {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 5px;
+}
+.cart-item-details {
+    flex: 1;
+}
+.cart-summary-box {
+    background: var(--dark-gray);
+    padding: 2rem;
+    border-radius: 10px;
+    border: 1px solid var(--medium-gray);
+    position: sticky;
+    top: 100px;
+}
+.cart-summary-box h3 {
+    font-size: 1.8rem;
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+.cart-summary-box .cta-btn {
+    width: 100%;
+    margin-top: 1.5rem;
+}
+
+
+/* CHECKOUT PAGE */
+.checkout-layout {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+}
+.checkout-form-container {
+    background: var(--dark-gray);
+    padding: 2rem;
+    border-radius: 10px;
+}
+.checkout-steps {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 2rem;
+    border-bottom: 1px solid var(--medium-gray);
+}
+.step {
+    padding: 1rem 0;
+    color: var(--text-muted);
+    flex: 1;
+    text-align: center;
+    position: relative;
+}
+.step.active {
+    color: var(--accent-gold);
+    font-weight: 500;
+}
+.step.active::after {
+    content: '';
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: var(--accent-gold);
+}
+.checkout-form h3 {
+    margin-bottom: 1.5rem;
+}
+.checkout-form .form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+}
+.checkout-form input {
+     width: 100%;
+    padding: 12px;
+    background-color: var(--medium-gray);
+    border: 1px solid var(--light-gray);
+    border-radius: 5px;
+    color: var(--text-light);
+    margin-bottom: 1rem;
+    font-family: var(--font-body);
+}
+.checkout-form .cta-btn {
+    width: 100%;
+    margin-top: 1rem;
+}
+.order-summary-box {
+    background: var(--dark-gray);
+    padding: 2rem;
+    border-radius: 10px;
+    border: 1px solid var(--medium-gray);
+}
+.order-summary-box h3 {
+    font-size: 1.8rem;
+    margin-bottom: 1.5rem;
+}
+.summary-item {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+.summary-item img {
+    width: 60px;
+    height: 60px;
+    border-radius: 5px;
+}
+.summary-item div {
+    flex: 1;
+}
+
+
+/* 11. RESPONSIVE DESIGN
+----------------------------------- */
+@media (min-width: 768px) {
+    .nav, .auth-btn, .search-container {
+        display: flex;
+    }
+    .menu-toggle {
+        display: none;
+    }
+    .account-layout, .cart-page-layout, .checkout-layout {
+        grid-template-columns: 250px 1fr;
+    }
+     .cart-page-layout {
+        grid-template-columns: 1fr 350px;
+     }
+     .checkout-layout {
+        grid-template-columns: 1fr 400px;
+     }
+}
