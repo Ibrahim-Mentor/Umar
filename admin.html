@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>  
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Rayelle</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">   
+</head>
+<body>
+        <div id="admin-modal" class="admin-modal">
+        <div class="admin-content">
+            <button id="close-admin" class="close-admin">&times;</button>
+            <h2>Admin Panel</h2>
+            <div class="admin-stats">
+                <div class="stat-card">
+                    <h3>Total Orders</h3>
+                    <p id="total-orders">45</p>
+                </div>
+                <div class="stat-card">
+                    <h3>Revenue</h3>
+                    <p id="total-revenue">$5,123</p>
+                </div>
+                <div class="stat-card">
+                    <h3>Low Stock Items</h3>
+                    <p id="low-stock-count">3</p>
+                </div>
+            </div>
+            <div class="admin-actions">
+                <button id="add-product-btn" class="admin-btn">Add New Product</button>
+                <button id="manage-products-btn" class="admin-btn">Manage Products</button>
+            </div>
+            <div id="admin-product-form" class="admin-product-form" style="display: none;">
+                <h3>Add/Edit Product</h3>
+                <form id="product-form">
+                    <input type="hidden" id="product-id">
+                    <input type="text" id="product-name" placeholder="Product Name" required>
+                    <textarea id="product-description" placeholder="Product Description" required></textarea>
+                    <input type="number" id="product-price" placeholder="Price" step="0.01" required>
+                    <select id="product-category" required>
+                        <option value="">Select Category</option>
+                        <option value="Sunglasses">Sunglasses</option>
+                        <option value="Eyeglasses">Eyeglasses</option>
+                        <option value="Blue Light">Blue Light</option>
+                    </select>
+                    <input type="text" id="product-brand" placeholder="Brand" required>
+                    <input type="text" id="product-colors" placeholder="Colors (comma separated)" required>
+                    <input type="text" id="product-sizes" placeholder="Sizes (comma separated)" required>
+                    <input type="number" id="product-inventory" placeholder="Inventory" required>
+                    <input type="number" id="product-rating" placeholder="Rating (1-5)" min="1" max="5" step="0.1" required>
+                    <button type="submit" id="save-product">Save Product</button>
+                </form>
+            </div>
+            <div id="admin-products-list" class="admin-products-list" style="display: none;">
+                <h3>Product Management</h3>
+                <div id="admin-products">
+                    </div>
+            </div>
+        </div>
+    </div>
+
+    <button id="admin-access" class="admin-access">Admin</button>
+</body>
+</html>

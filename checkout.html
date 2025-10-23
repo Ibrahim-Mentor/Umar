@@ -11,64 +11,47 @@
 </head>
 <body>
 
-    <header class="header">
-        <div class="container">
-             <div class="header-content" style="justify-content: center;">
-                <div class="logo">
-                     <h1><a href="index.html">RAYELLE</a></h1>
-                </div>
+ <div id="checkout-modal" class="checkout-modal">
+        <div class="checkout-content">
+            <button id="close-checkout" class="close-checkout">&times;</button>
+            <h2>Checkout</h2>
+            <div class="checkout-steps">
+                <div class="step active" data-step="1">Shipping</div>
+                <div class="step" data-step="2">Payment</div>
+                <div class="step" data-step="3">Review</div>
             </div>
-        </div>
-    </header>
-
-    <main class="main-page">
-        <div class="container">
-            <h2 class="page-title">Checkout</h2>
-            <div class="checkout-layout">
-                <div class="checkout-form-container">
-                    <div class="checkout-steps">
-                        <div class="step active">Shipping</div>
-                        <div class="step">Payment</div>
-                        <div class="step">Review</div>
-                    </div>
-                    <form id="checkout-form" class="checkout-form">
-                        <h3>Shipping Information</h3>
-                        <div class="form-row">
-                            <input type="text" placeholder="First Name" required>
-                            <input type="text" placeholder="Last Name" required>
-                        </div>
-                        <input type="text" placeholder="Address" required>
-                        <input type="text" placeholder="City" required>
-                         <div class="form-row">
-                            <input type="text" placeholder="State" required>
-                            <input type="text" placeholder="ZIP Code" required>
-                        </div>
-                        <input type="email" placeholder="Email" required>
-                        <button type="button" class="cta-btn">Continue to Payment</button>
-                    </form>
+            <form id="checkout-form" class="checkout-form">
+                <div class="checkout-step active" id="step-1">
+                    <h3>Shipping Information</h3>
+                    <input type="text" placeholder="Full Name" required>
+                    <input type="text" placeholder="Address" required>
+                    <input type="text" placeholder="City" required>
+                    <input type="text" placeholder="State" required>
+                    <input type="text" placeholder="ZIP Code" required>
+                    <input type="email" placeholder="Email" required>
+                    <input type="tel" placeholder="Phone Number" required>
+                    <button type="button" class="next-step">Next: Payment</button>
                 </div>
-                <div class="order-summary-box">
-                    <h3>Your Order</h3>
-                    <div class="summary-item">
-                        <img src="https://images.unsplash.com/photo-1572635196237-14b3f281503f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=880&q=80" alt="Product">
-                        <div>
-                            <p>Aviator Pro Sunglasses</p>
-                            <p>$149.99</p>
-                        </div>
-                        <span>x1</span>
+                <div class="checkout-step" id="step-2">
+                    <h3>Payment Information</h3>
+                    <input type="text" placeholder="Cardholder Name" required>
+                    <input type="text" placeholder="Card Number" required>
+                    <div class="card-details">
+                        <input type="text" placeholder="MM/YY" required>
+                        <input type="text" placeholder="CVV" required>
                     </div>
-                    <div class="total-line">
-                        <span>Subtotal</span>
-                        <span>$149.99</span>
-                    </div>
-                     <div class="total-line grand-total">
-                        <span>Total</span>
-                        <span>$167.49</span>
-                    </div>
+                    <button type="button" class="prev-step">Previous</button>
+                    <button type="button" class="next-step">Next: Review</button>
                 </div>
-            </div>
+                <div class="checkout-step" id="step-3">
+                    <h3>Order Review</h3>
+                    <div id="order-summary" class="order-summary">
+                        </div>
+                    <button type="button" class="prev-step">Previous</button>
+                    <button type="submit" class="place-order">PLACE ORDER</button>
+                </div>
+            </form>
         </div>
-    </main>
-
+    </div>
 </body>
 </html>
