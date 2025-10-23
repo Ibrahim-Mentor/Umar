@@ -147,10 +147,10 @@ h1, h2, h3, h4 {
     align-items: center;
 }
 
-.logo h1 {
-    color: var(--accent-gold);
-    font-size: 1.75rem;
-    letter-spacing: 2px;
+.logo  {
+    border-radius: 12px;
+    overflow: hidden;
+    width: 50%;
 }
 
 .nav {
@@ -907,11 +907,6 @@ h1, h2, h3, h4 {
     align-items: center;
 }
 
-.logo h1 {
-    color: var(--accent-gold);
-    font-size: 1.75rem;
-    letter-spacing: 2px;
-}
 
 .nav {
     display: none;
